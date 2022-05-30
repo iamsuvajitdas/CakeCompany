@@ -1,9 +1,14 @@
 ﻿using CakeCompany.Models;
+using CakeCompany.Provider.Interfaces;
 
-namespace CakeCompany.Provider;
+namespace CakeCompany.Provider.Implementations;
 
-internal class PaymentProvider
+public class PaymentProvider : IPaymentProvider
 {
+    public PaymentProvider()
+    {
+
+    }
     public PaymentIn Process(Order order)
     {
         if (order.ClientName.Contains("Important"))

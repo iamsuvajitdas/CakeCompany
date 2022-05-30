@@ -1,9 +1,17 @@
-﻿using CakeCompany.Models;
+﻿using CakeCompany.ENums;
+using CakeCompany.Models;
+using CakeCompany.Provider.Interfaces;
+using Microsoft.Extensions.Logging;
 
-namespace CakeCompany.Provider;
+namespace CakeCompany.Provider.Implementations;
 
-internal class CakeProvider
+public class CakeProvider : ICakeProvider
 {
+    private readonly ILogger<CakeProvider> _logger;
+    public CakeProvider(ILogger<CakeProvider> logger)
+    {
+        _logger = logger;
+    }
     public DateTime Check(Order order)
     {
         if (order.Name == Cake.Chocolate)
